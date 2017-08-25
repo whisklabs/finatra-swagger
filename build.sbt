@@ -1,6 +1,6 @@
 name := "finatra-swagger"
 
-organization := "com.jakehschwartz"
+organization := "com.whisk"
 
 scalaVersion := "2.12.3"
 
