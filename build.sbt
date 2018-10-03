@@ -1,6 +1,6 @@
 name := "finatra-swagger"
 
-organization := "com.jakehschwartz"
+organization := "com.whisk"
 
 scalaVersion := "2.12.4"
 
@@ -10,7 +10,7 @@ libraryDependencies ++= Seq(
   "com.twitter" %% "finatra-http" % "17.11.0",
   "io.swagger" % "swagger-core" % "1.5.16",
   "io.swagger" %% "swagger-scala-module" % "1.0.4",
-  "org.webjars" % "swagger-ui" % "3.2.0",
+  "org.webjars" % "swagger-ui" % "3.4.5",
   "net.bytebuddy" % "byte-buddy" % "1.7.5",
   "org.scalatest" %% "scalatest" % "3.0.4" % "test"
 )
@@ -22,17 +22,13 @@ scalacOptions ++= Seq(
   "-language:implicitConversions"
 )
 
+sonatypeProfileName := "com.whisk"
+
 pomIncludeRepository := { _ => false }
 
 publishMavenStyle := true
 
-publishTo := {
-  val nexus = "https://oss.sonatype.org/"
-  if (isSnapshot.value)
-    Some("snapshots" at nexus + "content/repositories/snapshots")
-  else
-    Some("releases"  at nexus + "service/local/staging/deploy/maven2")
-}
+publishTo := Some(Opts.resolver.sonatypeStaging)
 
 // License of your choice
 licenses := Seq("Apache 2" -> url("http://www.apache.org/licenses/LICENSE-2.0.txt"))
